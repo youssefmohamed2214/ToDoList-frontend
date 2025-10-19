@@ -1,0 +1,678 @@
+/* Modern To-Do List Styling */
+
+:root {
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary-color: #f1f5f9;
+  --accent-color: #e11d48;
+  --text-color: #111827;
+  --text-secondary: #4b5563;
+  --border-color: #d1d5db;
+  --bg-color: #f8fafc;
+  --success-color: #059669;
+  --warning-color: #f59e0b;
+  --danger-color: #dc2626;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --hover-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  --border-radius: 8px;
+  --table-hover: #e0f2fe;
+  --done-opacity: 0.7;
+}
+
+/* Icon Styling */
+.app-icon {
+  font-size: 1.8rem;
+  margin-right: 0.5rem;
+  color: var(--primary-color);
+  vertical-align: middle;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f0f2f5;
+  color: var(--text-color);
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+}
+
+/* Layout and Structure */
+.app-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+}
+
+header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Button Icons */
+.btn-icon {
+  margin-right: 0.4rem;
+}
+
+/* Priority Icons */
+.priority-icon {
+  margin-right: 0.3rem;
+}
+
+/* Action Button Icons */
+.actionsBtnEdit .btn-icon, 
+.saveBtn .btn-icon {
+  margin-right: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.actionsBtnDel .btn-icon, 
+.cancelButton .btn-icon {
+  margin-right: 0.3rem;
+  font-size: 0.9rem;
+}
+
+/* Task Status Icon */
+.task-status-icon {
+  margin-right: 0.5rem;
+  color: var(--primary-color);
+  vertical-align: middle;
+}
+
+/* Table Header Icons */
+th .header-icon {
+  margin-right: 0.4rem;
+  font-size: 0.9rem;
+}
+
+/* Controls Section */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius);
+  align-items: center;
+}
+
+#ToDoInput {
+  flex: 1 1 300px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#ToDoInput:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.1);
+}
+
+/* Date Container */
+.date-container {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-right: 0.5rem;
+}
+
+.date-container label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.date-container input[type="date"] {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 0.95rem;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.date-container input[type="date"]:focus {
+  border-color: var(--primary-color);
+}
+
+/* Select Container */
+.select-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.select-container label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+select {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+  outline: none;
+}
+
+select:focus {
+  border-color: var(--primary-color);
+}
+
+button {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+#AddBtn {
+  background-color: var(--primary-color);
+  white-space: nowrap;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+}
+
+.btn-danger:hover {
+  background-color: #d63d62;
+}
+
+/* Search & Filter Controls */
+.search-filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  flex: 1;
+}
+
+/* Search Icon Styling */
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+}
+
+#searchInput {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  padding-left: 2rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+#searchInput:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.1);
+}
+
+/* Favicon */
+.favicon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+/* Improve icon alignment */
+i[class*="fa-"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Table Styling */
+.table-container {
+  margin-top: 1rem;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  table-layout: fixed;
+}
+
+thead {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+}
+
+th {
+  text-align: left;
+  padding: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  position: relative;
+  vertical-align: middle;
+}
+
+/* Task ID Column Fix - Ensure the text doesn't overlap with sort buttons */
+th:nth-child(2) {
+  padding-right: 40px !important; /* Increase space for buttons */
+  position: relative;
+}
+
+/* Ensure all column headers with sort buttons have enough space */
+th:nth-child(3), 
+th:nth-child(4), 
+th:nth-child(5) {
+  padding-right: 40px !important;
+  position: relative;
+}
+
+/* Alternating row colors (zebra striping) */
+tbody tr:nth-child(odd) {
+  background-color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: white;
+}
+
+tbody tr:hover {
+  background-color: var(--table-hover);
+}
+
+/* Table row styling with consistent left border */
+tbody tr {
+  position: relative;
+  border-left: 4px solid transparent; /* Invisible border for all rows */
+  transition: border-left-color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Only color the border for selected/checked rows - using primary blue from header */
+tbody tr.selected, 
+tbody tr:has(.task-checkbox:checked),
+tr.done {
+  border-left-color: #0000ff; /* Pure blue color */
+  background-color: rgba(219, 234, 254, 0.5);
+  border-left-width: 4px; /* Explicitly set to 4px to override any changes */
+}
+
+/* Enhanced highlight for checked rows */
+tbody tr:has(.task-checkbox:checked) {
+  background-color: rgba(191, 219, 254, 0.3);
+  box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.2);
+}
+
+/* Remove any remaining ::before pseudo-elements */
+tbody tr::before,
+tbody tr.selected::before,
+tbody tr:has(.task-checkbox:checked)::before {
+  display: none;
+}
+
+/* Table Column Widths and Alignment */
+th:nth-child(1), td:nth-child(1) {  /* Checkbox column */
+  width: 60px;
+  text-align: center;
+}
+
+th:nth-child(2), td:nth-child(2) {  /* ID column */
+  width: 10%;
+  text-align: center;
+  white-space: nowrap;
+  padding-right: 2.5rem; /* Space for sort buttons */
+}
+
+th:nth-child(3), td:nth-child(3) {  /* Tasks column */
+  width: 40%;
+}
+
+th:nth-child(4), td:nth-child(4) {  /* Date column */
+  width: 15%;
+  text-align: center;
+}
+
+th:nth-child(5), td:nth-child(5) {  /* Priority column */
+  width: 15%;
+  text-align: center;
+}
+
+th:nth-child(6), td:nth-child(6) {  /* Actions column */
+  width: 22%;
+  text-align: center;
+}
+
+/* Sort Buttons */
+.sort-buttons-container {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  z-index: 5;
+}
+
+th .sort-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0;
+  margin: 0;
+  font-size: 0.7rem;
+  line-height: 1;
+  transition: color 0.2s, transform 0.1s;
+  height: 14px;
+  width: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+th .sort-btn:hover {
+  color: white;
+  transform: scale(1.2);
+}
+
+th .sort-btn.on {
+  color: white;
+  font-weight: bold;
+}
+
+/* Button vertical spacing */
+th .sort-btn.Asc {
+  margin-bottom: -1px;
+}
+
+th .sort-btn.Desc {
+  margin-top: -1px;
+}
+
+td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+/* Priority Badges */
+.priority-badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  min-width: 80px;
+}
+
+.priority-badge.high {
+  background-color: var(--danger-color);
+}
+
+.priority-badge.medium {
+  background-color: #f59e0b;
+  color: #1f2937;
+  opacity: 0.9;
+}
+
+.priority-badge.low {
+  background-color: var(--success-color);
+}
+
+/* Enhanced Checkbox Styling */
+.checkbox-cell {
+  text-align: center;
+  width: 60px;
+}
+
+.task-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #cbd5e1;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  background-color: white;
+}
+
+.task-checkbox:checked {
+  background: #0000ff;
+  border-color: #0000ff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.task-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  line-height: 1;
+}
+
+.task-checkbox:hover {
+  border-color: #3b82f6;
+}
+
+.task-checkbox:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Done Tasks */
+tr.done {
+  opacity: var(--done-opacity);
+}
+
+tr.done .taskTdElContent {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+/* ID and Date Columns */
+.taskTDELID {
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.taskTdElDate {
+  white-space: nowrap;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Action Buttons */
+.ActionsELeTd {
+  white-space: nowrap;
+  width: 160px;
+}
+
+.actionsBtnEdit, .saveBtn {
+  background-color: #dbeafe;
+  color: #1e40af;
+  margin-right: 0.5rem;
+  font-size: 0.85rem;
+  padding: 0.45rem 0.75rem;
+  font-weight: 500;
+  min-width: 70px;
+  text-align: center;
+}
+
+.actionsBtnEdit:hover, .saveBtn:hover {
+  background-color: #bfdbfe;
+}
+
+.actionsBtnDel, .cancelButton {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  font-size: 0.85rem;
+  padding: 0.45rem 0.75rem;
+  font-weight: 500;
+  min-width: 70px;
+  text-align: center;
+}
+
+.actionsBtnDel:hover, .cancelButton:hover {
+  background-color: #fca5a5;
+}
+
+/* Edit Inputs */
+.EditTaskInput, .EditTaskDate, .EditTaskPriority {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.EditTaskInput:focus, .EditTaskDate:focus, .EditTaskPriority:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.1);
+}
+
+/* Custom SweetAlert Toast */
+.custom-small-swal-toast {
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  border-radius: var(--border-radius);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 960px) {
+  .app-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  #ToDoInput, #dueDate {
+    flex: 1 1 100%;
+  }
+  
+  .search-filter-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-container, .filter-container {
+    width: 100%;
+  }
+  
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0;
+  }
+  
+  th, td {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .ActionsELeTd {
+    width: auto;
+  }
+  
+  .actionsBtnEdit, .actionsBtnDel, .saveBtn, .cancelButton {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Header Content Layout */
+.header-content {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-right: 30px; /* Space for sort buttons */
+}
+
+.header-text {
+  margin-right: auto; /* Push sort buttons to the right */
+  white-space: nowrap;
+}

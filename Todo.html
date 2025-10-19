@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO DO LIST</title>
+    <link rel="stylesheet" href="/Todo.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <h1><i class="fas fa-clipboard-check app-icon"></i>To-Do List</h1>
+      </header>
+
+      <div class="controls">
+        <input
+          type="text"
+          id="ToDoInput"
+          placeholder="Add a new task"
+          tabindex="1"
+        />
+        <div class="date-container">
+          <label for="dueDate"><i class="fas fa-calendar"></i> Due Date:</label>
+          <input type="date" id="dueDate" tabindex="2" />
+        </div>
+        <div class="select-container">
+          <label for="priority"><i class="fas fa-flag"></i> Priority:</label>
+          <select id="priority">
+            <option value="high">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+        <button type="button" id="AddBtn">
+          <i class="fas fa-plus btn-icon"></i>Add Task
+        </button>
+        <button type="button" id="deleteAll" class="btn-danger">
+          <i class="fas fa-trash-alt btn-icon"></i>Delete All
+        </button>
+      </div>
+
+      <div class="search-filter-controls">
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <i class="fas fa-search search-icon"></i>
+            <input
+              type="search"
+              id="searchInput"
+              placeholder="Search tasks..."
+            />
+          </div>
+          <div class="select-container">
+            <label for="searchBy">Search By:</label>
+            <select id="searchBy">
+              <option value="Task ID">
+                <i class="fas fa-hashtag"></i> Task ID
+              </option>
+              <option value="Task Content" selected>
+                <i class="fas fa-file-alt"></i> Task Content
+              </option>
+              <option value="Due Date">
+                <i class="fas fa-calendar"></i> Due Date
+              </option>
+              <option value="Priority">
+                <i class="fas fa-flag"></i> Priority
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-container">
+          <label for="filterBy"><i class="fas fa-filter"></i> Filter By:</label>
+          <select id="filterBy">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="uncompleted">Uncompleted</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th class="checkbox-column">
+                <span class="checkbox-header"></span>
+              </th>
+              <th>
+                <i class="fas fa-hashtag header-icon"></i>Task ID
+                <div class="sort-buttons-container">
+                  <button
+                    class="sort-btn sortTaskID Asc"
+                    title="Sort by Task ID (Ascending)"
+                  >
+                    ▲
+                  </button>
+                  <button
+                    class="sort-btn sortTaskID Desc"
+                    title="Sort by Task ID (Descending)"
+                  >
+                    ▼
+                  </button>
+                </div>
+              </th>
+              <th>
+                <i class="fas fa-tasks header-icon"></i>Tasks
+                <div class="sort-buttons-container">
+                  <button
+                    class="sort-btn sortTasks Asc"
+                    title="Sort by Tasks (Ascending)"
+                  >
+                    ▲
+                  </button>
+                  <button
+                    class="sort-btn sortTasks Desc"
+                    title="Sort by Tasks (Descending)"
+                  >
+                    ▼
+                  </button>
+                </div>
+              </th>
+              <th>
+                <i class="fas fa-calendar header-icon"></i>Due Date
+                <div class="sort-buttons-container">
+                  <button
+                    class="sort-btn sortDate Asc"
+                    title="Sort by Due Date (Ascending)"
+                  >
+                    ▲
+                  </button>
+                  <button
+                    class="sort-btn sortDate Desc"
+                    title="Sort by Due Date (Descending)"
+                  >
+                    ▼
+                  </button>
+                </div>
+              </th>
+              <th>
+                <i class="fas fa-flag header-icon"></i>Priority
+                <div class="sort-buttons-container">
+                  <button
+                    class="sort-btn sortPriority Asc"
+                    title="Sort by Priority (Ascending)"
+                  >
+                    ▲
+                  </button>
+                  <button
+                    class="sort-btn sortPriority Desc"
+                    title="Sort by Priority (Descending)"
+                  >
+                    ▼
+                  </button>
+                </div>
+              </th>
+              <th><i class="fas fa-cog header-icon"></i>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/Todo.js"></script>
+  </body>
+</html>
